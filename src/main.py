@@ -2,9 +2,11 @@
 
 class StringCalculator:
     def __init__(self):
+        self.counter = 0
         pass
 
     def add(self, numbers):
+        self.counter += 1
         if not numbers:
             return 0
         
@@ -22,3 +24,6 @@ class StringCalculator:
         
         res = sum(int(num) for num in nums)
         return res
+
+    def GetCalledCount(self):
+        return self.counter

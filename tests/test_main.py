@@ -41,3 +41,18 @@ class TestStringCalculator:
             self.calculator.add("1,-2,-3,4,-5")
         assert "negatives not allowed" in str(e.value)
         assert "-2,-3,-5" in str(e.value)
+    
+    def test_get_called_count_should_return_zero(self):
+        assert self.calculator.GetCalledCount() == 0
+    
+    def test_get_called_count_should_return_one(self):
+        self.calculator.add("1")
+        assert self.calculator.GetCalledCount() == 1
+    
+    
+    def test_get_called_multiple_should_return_correct_count(self):
+        self.calculator.add("1")
+        self.calculator.add("1, 23")
+        self.calculator.add("")
+        assert self.calculator.GetCalledCount() == 3
+        
