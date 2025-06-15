@@ -30,3 +30,8 @@ class TestStringCalculator:
     
     def test_add_different_delimiters_should_return_sum(self):
         assert self.calculator.add("//;\n1;2") == 3
+    
+    def test_add_negative_numbers_should_raise_exception(self):
+        with pytest.raises(ValueError) as e:
+            self.calculator.add("1,-2,-3")
+        assert "negatives not allowed" in str(e.value)
