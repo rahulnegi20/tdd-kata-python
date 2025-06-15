@@ -7,7 +7,11 @@ class StringCalculator:
     def add(self, numbers):
         if not numbers:
             return 0
-        numbers = numbers.replace("\n", ",")
-        numbers = numbers.split(",")
-        res = sum(int(num) for num in numbers)
+        delimiter = ","
+        if numbers.startswith("//"):
+            delimiter_section, numbers = numbers.split("\n")
+            delimiter = delimiter_section[2:]
+        
+        numbers = numbers.replace("\n", delimiter)
+        res = sum(int(num) for num in numbers.split(delimiter))
         return res
