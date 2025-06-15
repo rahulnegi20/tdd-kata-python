@@ -35,3 +35,9 @@ class TestStringCalculator:
         with pytest.raises(ValueError) as e:
             self.calculator.add("1,-2,-3")
         assert "negatives not allowed" in str(e.value)
+    
+    def test_add_multiple_negative_numbers_should_raise_exception(self):
+        with pytest.raises(ValueError) as e:
+            self.calculator.add("1,-2,-3,4,-5")
+        assert "negatives not allowed" in str(e.value)
+        assert "-2,-3,-5" in str(e.value)
