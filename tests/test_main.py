@@ -21,3 +21,6 @@ class TestStringCalculator:
 
     def test_add_multiple_numbers_should_return_sum(self):
         assert self.calculator.add("1,2,3,4,5") == 15
+    
+    def test_add_unknown_amount_of_numbers_should_return_sum(self):
+        assert self.calculator.add("1,2,3,4,5,6,7,8,9,10") == 55
