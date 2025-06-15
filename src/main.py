@@ -22,8 +22,9 @@ class StringCalculator:
         if negative_numbers:
             raise ValueError(f"negatives not allowed: {','.join(negative_numbers)}")
         
-        res = sum(int(num) for num in nums)
+        res = sum(int(num) for num in nums if int(num) <= 1000)
         return res
+
 
     def GetCalledCount(self):
         return self.counter

@@ -49,10 +49,11 @@ class TestStringCalculator:
         self.calculator.add("1")
         assert self.calculator.GetCalledCount() == 1
     
-    
     def test_get_called_multiple_should_return_correct_count(self):
         self.calculator.add("1")
         self.calculator.add("1, 23")
         self.calculator.add("")
         assert self.calculator.GetCalledCount() == 3
-        
+
+    def test_numbers_bigger_than_1000_should_be_ignored(self):
+        assert self.calculator.add("1001, 2") == 2
