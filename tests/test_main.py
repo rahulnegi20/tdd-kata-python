@@ -57,3 +57,13 @@ class TestStringCalculator:
 
     def test_numbers_bigger_than_1000_should_be_ignored(self):
         assert self.calculator.add("1001, 2") == 2
+    
+    def test_add_with_any_length_delimiter(self):
+        assert self.calculator.add("//[***]\n1***2***3") == 6 
+
+    def test_add_with_multiple_delimiters(self):
+        calc = StringCalculator()
+        assert self.calculator.add("//[*][%]\n1*2%3") == 6
+
+    def test_add_with_multiple_long_delimiters(self):
+        assert self.calculator.add("//[**][%%]\n1**2%%3") == 6
