@@ -18,3 +18,6 @@ class TestStringCalculator:
 
     def test_add_two_numbers_should_return_sum(self):
         assert self.calculator.add("1,2") == 3
+
+    def test_add_multiple_numbers_should_return_sum(self):
+        assert self.calculator.add("1,2,3,4,5") == 15
